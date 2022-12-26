@@ -24,18 +24,18 @@ app.use(cookieParser('CookingBlogSecure'));
 
 
 //-momery unleaked---------
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 
-app.use(session({
-cookie:{
-    secure: true,
-    maxAge:60000
-       },
-store: new RedisStore(),
-secret: 'secret',
-saveUninitialized: true,
-resave: false
-}));
+// app.use(session({
+// cookie:{
+//     secure: true,
+//     maxAge:60000
+//        },
+// store: new RedisStore(),
+// secret: 'secret',
+// saveUninitialized: true,
+// resave: false
+// }));
 
 
 app.engine( "hbs", exphbs({ defaultLayout: null }));
