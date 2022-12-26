@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '../public'));
 
 require('dotenv').config();
 
-app.use(express.urlencoded({extended:true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(expresslayouts);
 
@@ -21,6 +21,8 @@ app.use(session({
     saveUninitialized: true,
     resave: true
 }));
+app.engine( "hbs", exphbs({ defaultLayout: null }));
+
 app.use(flash());
 app.use(fileUpload());
 
@@ -28,7 +30,7 @@ app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
 const routes = require('./server/routes/reciperoute.js');
-app.use('/',routes);
+app.use('/', routes);
 app.listen(5000, () => {
     console.log("Running on port 5000.");
-  });
+});
