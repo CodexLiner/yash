@@ -43,7 +43,7 @@ app.use(cookieParser('CookingBlogSecure'));
 app.use(flash());
 app.use(fileUpload());
 
-app.set('layout', './layouts/main');
+app.set('views',  path.join(__dirname,'./layouts/main'));
 app.set('view engine', 'ejs');
 
 const routes = require('./server/routes/reciperoute.js');
