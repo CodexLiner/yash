@@ -29,14 +29,15 @@ app.use(fileUpload());
 // app.set('view engine', 'ejs');
 
 
-    // Require static assets from public folder
+    // Require static assets from public folder  
+    app.set('views', path.join(__dirname, 'views'));
     app.use(express.static(path.join(__dirname, 'public')));
     // Set view engine as EJS
     app.engine('ejs', require('ejs').renderFile);
     app.set('view engine', 'ejs');
     // Set 'views' directory for any views 
     // being rendered res.render()
-    app.set('views', path.join(__dirname, 'views'));
+ 
 
 
 
