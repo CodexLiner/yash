@@ -24,8 +24,20 @@ app.use(session({
 app.use(flash());
 app.use(fileUpload());
 
-app.set('layout', './layouts/main');
-app.set('view engine', 'ejs');
+// app.set('layout', './layouts/main');
+// app.set('view engine', 'ejs');
+
+
+    // Require static assets from public folder
+    app.use(express.static(path.join(__dirname, 'public')));
+    // Set view engine as EJS
+    app.engine('ejs', require('ejs').renderFile);
+    app.set('view engine', 'ejs');
+    // Set 'views' directory for any views 
+    // being rendered res.render()
+    app.set('views', path.join(__dirname, ''));
+
+
 
 const routes = require('./server/routes/reciperoute.js');
 app.use('/',routes);
