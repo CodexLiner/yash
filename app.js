@@ -38,7 +38,7 @@ app.use(cookieParser('CookingBlogSecure'));
 // }));
 
 
-app.engine( "hbs", exphbs({ defaultLayout: null }));
+// app.engine( "hbs", exphbs({ defaultLayout: null }));
 
 app.use(flash());
 app.use(fileUpload());
