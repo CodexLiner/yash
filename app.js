@@ -16,11 +16,28 @@ app.use(express.static('public'));
 app.use(expresslayouts);
 
 app.use(cookieParser('CookingBlogSecure'));
+// app.use(session({
+//     secret: 'CookingBlogSecretSession',
+//     saveUninitialized: true,
+//     resave: true
+// }));
+
+
+//-momery unleaked---------
+app.set('trust proxy', 1);
+
 app.use(session({
-    secret: 'CookingBlogSecretSession',
-    saveUninitialized: true,
-    resave: true
+cookie:{
+    secure: true,
+    maxAge:60000
+       },
+store: new RedisStore(),
+secret: 'secret',
+saveUninitialized: true,
+resave: false
 }));
+
+
 app.engine( "hbs", exphbs({ defaultLayout: null }));
 
 app.use(flash());
