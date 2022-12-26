@@ -29,6 +29,6 @@ app.set('view engine', 'ejs');
 
 const routes = require('./server/routes/reciperoute.js');
 app.use('/',routes);
-app.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(5000, () => {
+    console.log("Running on port 5000.");
+  });
